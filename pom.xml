@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.shallowinggg.boot</groupId>
+    <artifactId>spiral-spring-boot-project</artifactId>
+    <version>0.1.0</version>
+    <modules>
+        <module>spiral-spring-boot-autoconfigure</module>
+        <module>spiral-spring-boot-starter</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>spiral-spring-boot-project</name>
+    <url>https://github.com/shallowinggg/spiral-spring-boot-project</url>
+    <description>Spiral Spring Boot Project</description>
+
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/shallowinggg/spiral-spring-boot-project</url>
+        <connection>https://github.com/shallowinggg/spiral-spring-boot-project.git</connection>
+    </scm>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-resources.version>3.1.0</maven-resources.version>
+        <maven-source.version>3.0.1</maven-source.version>
+        <maven-javadoc.version>2.9.1</maven-javadoc.version>
+        <maven-surefire.version>2.19.1</maven-surefire.version>
+        <maven-gpg.version>1.6</maven-gpg.version>
+
+        <spiral.version>0.1.0</spiral.version>
+        <spiral-boot.version>0.1.0</spiral-boot.version>
+        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <name>ding shimin</name>
+            <id>shallowinggg</id>
+            <email>shallowinggg@icloud.com</email>
+            <roles>
+                <role>Developer</role>
+                <role>Owner</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.shallowinggg</groupId>
+                <artifactId>spiral</artifactId>
+                <version>${spiral.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.shallowinggg.boot</groupId>
+                <artifactId>spiral-spring-boot-autoconfigure</artifactId>
+                <version>${spiral-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-gpg-plugin</artifactId>-->
+<!--                <version>${maven-gpg.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>sign</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+</project>

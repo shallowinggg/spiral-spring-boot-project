@@ -1,0 +1,5 @@
+/.idea/
+*.iml
+# Project exclude paths
+/spiral-spring-boot-autoconfigure/target/
+/spiral-spring-boot-starter/target/
